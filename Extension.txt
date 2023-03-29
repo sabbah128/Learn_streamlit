@@ -1,0 +1,3 @@
+venv\Scripts\activeat
+touch --> type nul > name.py
+install wget
