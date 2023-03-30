@@ -49,5 +49,5 @@ ax = sns.scatterplot(x=penguins_df[selected_x_var],
 
 plt.xlabel(selected_x_var)
 plt.ylabel(selected_y_var)
-plt.title("Scatterplot of Palmer's Penguins: {}".format(selected_gender))
+plt.title(f"Scatterplot of Palmer's Penguins: {selected_gender}")
 st.pyplot(fig)
