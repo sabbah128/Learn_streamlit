@@ -1,14 +1,15 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
+import plotly.express as px
 
 
 st.title('SF Trees')
 st.write('This app analyses trees in San Francisco using'
          ' a dataset kindly provided by SF DPW')
 
+st.subheader('Plotly Chart')
 trees_df = pd.read_csv('trees.csv')
-trees_df = trees_df.dropna(subset=['longitude', 'latitude'])
-st.write(trees_df.head())
-# trees_df = trees_df.sample(n = 10)
-# st.map(trees_df)
+
+fig = px.histogram(trees_df['dbh'])
+st.plotly_chart(fig)
+
