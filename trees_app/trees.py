@@ -1,17 +1,14 @@
-import pandas as pd
 import streamlit as st
+import pandas as pd
+import numpy as np
 
 
-st.title("SF Trees")
-st.write("This app analyses trees in San Francisco using"
-         " a dataset kindly provided by SF DPW")
+st.title('SF Trees')
+st.write('This app analyses trees in San Francisco using'
+         ' a dataset kindly provided by SF DPW')
 
-trees_df = pd.read_csv("trees.csv")
+trees_df = pd.read_csv('trees.csv')
+trees_df = trees_df.dropna(subset=['longitude', 'latitude'])
 st.write(trees_df.head())
-
-df_dbh_grouped = pd.DataFrame(trees_df.groupby(["dbh"]).count()["tree_id"])
-df_dbh_grouped.columns = ["tree_count"]
-
-st.line_chart(df_dbh_grouped)
-st.bar_chart(df_dbh_grouped)
-st.area_chart(df_dbh_grouped)
+# trees_df = trees_df.sample(n = 10)
+# st.map(trees_df)
