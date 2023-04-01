@@ -153,4 +153,5 @@ cython_debug/
 
 # My ignore
 config.toml
+*.png
 

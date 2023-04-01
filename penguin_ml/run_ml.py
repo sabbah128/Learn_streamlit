@@ -41,6 +41,13 @@ else:
                 it has a score of {score}! Use the inputs 
                 below to try out the model.
             ''')
+    fig, ax = plt.subplots()
+    ax = sns.barplot(x = rfc.feature_importances_, y = features.columns)
+    plt.title('Which features are the most important for species prediction?')
+    plt.xlabel('Importance')
+    plt.ylabel('Feature')
+    plt.tight_layout()
+    fig.savefig('feature_importance.png')
 
 with st.form('user_inputs'):
     island = st.selectbox('Penguin Island', options=['Biscoe', 'Dream', 'Torgerson'])
@@ -76,5 +83,8 @@ new_prediction = rfc.predict([[bill_length,
                                sex_female,
                                sex_male]])
 
+
 prediction_species = unique_penguin_mapping[new_prediction][0]
 st.write(f'We predict your penguin is of the {prediction_species} species')
+
+st.image('feature_importance.png')
