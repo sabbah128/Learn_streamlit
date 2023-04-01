@@ -21,6 +21,8 @@ output, uniques = pd.factorize(output)
 
 x_train, x_test, y_train, y_test = train_test_split(features, output, test_size=0.3)
 
+print(f'Lenght of train is {len(x_train)} and test is {len(x_test)}.')
+
 rfc = RandomForestClassifier()
 rfc.fit(x_train, y_train)
 
