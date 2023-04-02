@@ -26,5 +26,6 @@ for i in range(0, 500):
 
 fig, ax = plt.subplots()
 ax = plt.hist(list_of_means, edgecolor='black', bins='auto') # , range=[0,1]
-ax = plt.title('Your Title' if graph_title =='' else graph_title)
+# ax = plt.title('Your Title' if graph_title =='' else graph_title)
+ax = plt.title('H.KianAra')
 st.pyplot(fig)
