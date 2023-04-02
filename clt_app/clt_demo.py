@@ -11,6 +11,10 @@ st.write(
         means of the samples, in order to illustrate the Central Limit Theorem!'''
     )
 
+password_guess = st.text_input('What is the Password?')
+if password_guess != 'sabbah128':
+    st.stop()
+
 perc_heads = st.number_input(label = '**Chance of Coins Landing on Heads**', 
                              min_value = 0.0, 
                              max_value = 1.0, 
