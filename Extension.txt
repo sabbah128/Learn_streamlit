@@ -3,3 +3,7 @@ touch --> type nul > name.py
 install wget
 for install sklearn first downloads scipy and then pip install its and then
 run pip install scipy again.
+we can use 
+    "pip install pipreqs
+     pipreqs ."
+for make requrement.txt insted of pip freeze > requrement.txt
