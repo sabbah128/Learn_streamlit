@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 st.title('Central Limit Theorem with Streamlit')
-st.subheader('An App by Tyler Richards')
+st.subheader('An App by H.KianAra')
 st.write(
     '''This app simulates a thousand coin flips using the chance of heads input below, 
         and then samples with replacement from that population and plots the histogram of the 
