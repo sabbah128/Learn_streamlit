@@ -14,19 +14,23 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
+
 # st.set_page_config(layout="wide")
 
 lottie_penguin = load_lottieurl('https://assets9.lottiefiles.com/private_files/lf30_lntyk83o.json')
-st_lottie(lottie_penguin, speed=1.5, width = 800, height = 400)
+st_lottie(lottie_penguin, speed=1.5, width = 800, height = 150)
 
-st.title("Palmer's Penguins")
+st.title(":blue[Palmer's Penguins] :sunglasses:")
 st.markdown('Use this Streamlit app to make your own scatterplot about penguins!')
 
-selected_x_var = st.selectbox('What do want the x variable to be?',
+col1, col2 = st.columns(2)
+with col1:
+    selected_x_var = st.selectbox('What do want the x variable to be?',
                               ['bill_length_mm', 'bill_depth_mm', 
                                'flipper_length_mm', 'body_mass_g'])
 
-selected_y_var = st.selectbox('What about the y?',
+with col2:
+    selected_y_var = st.selectbox('What about the y?',
                               ['bill_depth_mm', 'bill_length_mm', 
                                'flipper_length_mm', 'body_mass_g'])
 
@@ -49,6 +53,6 @@ plt.ylabel(selected_y_var)
 plt.title("Scatterplot of Palmer's Penguins")
 st.pyplot(fig)
 
-st.title('Pandas Profiling of Penguin Dataset')
-penguin_profile = ProfileReport(penguins_df, explorative=True)
-st_profile_report(penguin_profile)
+# st.title('Pandas Profiling of Penguin Dataset')
+# penguin_profile = ProfileReport(penguins_df, explorative=True)
+# st_profile_report(penguin_profile)
