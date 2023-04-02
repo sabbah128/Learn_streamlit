@@ -7,3 +7,5 @@ we can use
     "pip install pipreqs
      pipreqs ."
 for make requrement.txt insted of pip freeze > requrement.txt
+
+st.set_page_config(layout="wide")
