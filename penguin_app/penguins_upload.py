@@ -7,11 +7,12 @@ import seaborn as sns
 st.title("Palmer's Penguins")
 st.markdown('Use this Streamlit app to make your own scatterplot about penguins!')
 
-penguins_df = st.file_uploader( 'Select Your Local Penguins CSV (default provided)')
-if penguins_df is None:
+penguins_file = st.file_uploader( 'Select Your Local Penguins CSV (default provided)')
+if penguins_file is None:
     st.write('Please upload your file')
     st.stop()
-#     penguins_df = pd.read_csv(penguin_file)
+
+penguins_df = pd.read_csv(penguins_file)
 # else:
 #     penguins_df = pd.read_csv('penguins.csv')
 
