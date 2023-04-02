@@ -21,5 +21,3 @@ body_mass = st.number_input('Body Mass (g)', min_value=0)
 st.write('the user inputs are {}'.format([island, sex, bill_length, 
                                           bill_depth, flipper_length, body_mass]))
 
-island_code = {'Biscoe' : 0, 'Dream' : 1, 'Torgerson' : 2}
-sex_code = {'Female' : 0, 'Male' : 1}
