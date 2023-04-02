@@ -31,6 +31,8 @@ df_dbh_grouped.columns = ['tree_count']
 
 col1, col2 = st.columns(2)
 
+sns.set_style('darkgrid') # darkgrid, whitegrid, dark, white, tickscd
+
 with col1:
     st.write('Trees by Width')
     fig_1, ax_1 = plt.subplots()
