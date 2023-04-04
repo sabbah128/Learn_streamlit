@@ -15,7 +15,8 @@ st.sidebar.title('Answering the Questions.')
 n_q = st.sidebar.radio('Select number of questions:', ['Q1', 'Q2'])
 
 if n_q == 'Q1':
-    lottie_airplane = load_lottieurl('https://assets4.lottiefiles.com/packages/lf20_jhu1lqdz.json')
+    lottie_airplane = load_lottieurl(
+        'https://assets4.lottiefiles.com/packages/lf20_jhu1lqdz.json')
     st_lottie(lottie_airplane, speed=1, height=200, key="initial")
 
     st.title('Major US Airline Job Application')
