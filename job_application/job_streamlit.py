@@ -12,9 +12,10 @@ def load_lottieurl(url: str):
 
 lottie_airplane = load_lottieurl('https://assets4.lottiefiles.com/packages/lf20_jhu1lqdz.json')
 
-st_lottie(lottie_airplane, speed=1, height=200, key="initial")
+st_lottie(lottie_airplane, speed=1, height=150, key="initial")
+
 st.title('Major US Airline Job Application')
-st.write('by Tyler Richards')
+st.write('by H.KianAra')
 st.subheader('Question 1: Airport Distance')
 
 '''
@@ -23,10 +24,10 @@ locations (in latitude and longitude) below,
 write a function that takes an airport code as input and
 returns the airports listed from nearest to furthest from
 the input airport.' There are three steps here:
+
 1. Load Data
 2. Implement Distance Algorithm
-3. Apply distance formula across all airports other than the
-input
+3. Apply distance formula across all airports other than the input
 4. Return sorted list of airports Distance
 '''
 
@@ -35,18 +36,12 @@ with st.echo():
 
 '''
 From some quick googling, I found that the haversine distance
-is
-a good approximation for distance. At least good enough to get
-the
-distance between airports! Haversine distances can be off by up
-to .5%,
-because the earth is not actually a sphere. It looks like the
-latitudes
-and longitudes are in degrees, so I'll make sure to have a way
-to account
-for that as well. The haversine distance formula is labeled
-below,
-followed by an implementation in python
+is a good approximation for distance. At least good enough to get
+the distance between airports! Haversine distances can be off by up
+to .5%, because the earth is not actually a sphere. It looks like the
+latitudes and longitudes are in degrees, so I'll make sure to have a way
+to account for that as well. The haversine distance formula is labeled
+below, followed by an implementation in python
 '''
 
 st.image('haversine.png')
@@ -55,16 +50,16 @@ with st.echo():
     from math import radians, sin, cos, atan2, sqrt
 
     def haversine_distance(long1, lat1, long2, lat2, degrees=False):
-
         if degrees == True:
             long1 = radians(long1)
             lat1 = radians(lat1)
             long2 = radians(long2)
             lat2 = radians(lat2)
-        a = sin((lat2-lat1) / 2)**2 + cos(lat1) * cos(lat2) * sin((long2-long1) / 2)**2
-        c = 2*atan2(sqrt(a), sqrt(1-a))
-        distance = 6371 * c
-        return distance
+            a = sin((lat2-lat1) / 2)**2 + cos(lat1) * cos(lat2) * sin((long2-long1) / 2)**2
+            c = 2*atan2(sqrt(a), sqrt(1-a))
+            distance = 6371 * c
+            return distance
+        return None
 
 '''
 Now, we need to test out our function! The
@@ -87,7 +82,7 @@ test_distance = haversine_distance(long1 = long1,
                                    lat2 = lat2, 
                                    degrees=True)
 
-st.write('Your distance is: :blue[**{} km**]'.format(int(test_distance)))
+st.write(f'Your distance is: :blue[**{int(test_distance)} km**]')
 
 '''
 We have the Haversine distance implemented, and we also have
