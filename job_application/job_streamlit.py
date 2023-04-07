@@ -32,7 +32,7 @@ if n_q == 'Q1':
     write a function that takes an airport code as input and
     returns the airports listed from nearest to furthest from
     the input airport.'
-    
+
     There are three steps here:
     1. Load Data
     2. Implement Distance Algorithm
@@ -40,8 +40,9 @@ if n_q == 'Q1':
     4. Return sorted list of airports Distance
     '''
 
-    with st.echo():
-        airport_distance_df = pd.read_csv('airport_location.csv')
+    with st.expander('Expanding Code :'):
+        with st.echo():
+            airport_distance_df = pd.read_csv('airport_location.csv')
 
     '''
     From some quick googling, I found that the haversine distance
@@ -55,20 +56,21 @@ if n_q == 'Q1':
 
     st.image('haversine.png')
 
-    with st.echo():
-        from math import radians, sin, cos, atan2, sqrt
+    with st.expander('Expanding Code :'):
+        with st.echo():
+                from math import radians, sin, cos, atan2, sqrt
 
-        def haversine_distance(long1, lat1, long2, lat2, degrees=False):
-            if degrees == True:
-                long1 = radians(long1)
-                lat1 = radians(lat1)
-                long2 = radians(long2)
-                lat2 = radians(lat2)
-                a = sin((lat2-lat1) / 2)**2 + cos(lat1) * cos(lat2) * sin((long2-long1) / 2)**2
-                c = 2*atan2(sqrt(a), sqrt(1-a))
-                distance = 6371 * c
-                return distance
-            return None
+                def haversine_distance(long1, lat1, long2, lat2, degrees=False):
+                    if degrees == True:
+                        long1 = radians(long1)
+                        lat1 = radians(lat1)
+                        long2 = radians(long2)
+                        lat2 = radians(lat2)
+                        a = sin((lat2-lat1)/2)**2+cos(lat1)*cos(lat2)*sin((long2-long1)/2)**2
+                        c = 2*atan2(sqrt(a), sqrt(1-a))
+                        distance = 6371 * c
+                        return distance
+                    return None
 
     '''
     Now, we need to test out our function! The
@@ -99,19 +101,20 @@ if n_q == 'Q1':
     Our next step is to implement this in a function!
     '''
 
-    with st.echo():
-        def get_distance_list(airport_dataframe, airport_code):
-            df = airport_dataframe.copy()
-            row = df[df.loc[:,'Airport Code'] == airport_code]
-            lat = row['Lat']
-            long = row['Long']
-            df = df[df['Airport Code'] != airport_code]
-            df['Distance'] = df.apply(lambda x: haversine_distance(lat1=lat, 
-                                                                long1=long, 
-                                                                lat2 = x.Lat, 
-                                                                long2 = x.Long, 
-                                                                degrees=True), axis=1)
-            return(df.sort_values(by='Distance').reset_index()['Airport Code'])
+    with st.expander('Expanding Code :'):
+        with st.echo():
+            def get_distance_list(airport_dataframe, airport_code):
+                df = airport_dataframe.copy()
+                row = df[df.loc[:,'Airport Code'] == airport_code]
+                lat = row['Lat']
+                long = row['Long']
+                df = df[df['Airport Code'] != airport_code]
+                df['Distance'] = df.apply(lambda x: haversine_distance(lat1=lat, 
+                                                                    long1=long, 
+                                                                    lat2 = x.Lat, 
+                                                                    long2 = x.Long, 
+                                                                    degrees=True), axis=1)
+                return(df.sort_values(by='Distance').reset_index()['Airport Code'])
 
     '''
     To use this function, select an airport from the airports
