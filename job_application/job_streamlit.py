@@ -11,6 +11,9 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
+st.set_page_config(page_title='H.KianAra', page_icon = 'airplane.ico')
+    # , layout = 'wide', initial_sidebar_state = 'auto'
+
 st.sidebar.title('Answering the Questions.')
 n_q = st.sidebar.radio('Select number of questions:', ['Q1', 'Q2'])
 
@@ -28,8 +31,9 @@ if n_q == 'Q1':
     locations (in latitude and longitude) below,
     write a function that takes an airport code as input and
     returns the airports listed from nearest to furthest from
-    the input airport.' There are three steps here:
-
+    the input airport.'
+    
+    There are three steps here:
     1. Load Data
     2. Implement Distance Algorithm
     3. Apply distance formula across all airports other than the input

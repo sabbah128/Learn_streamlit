@@ -17,3 +17,6 @@ with col2:
     ...
 
 st.beta_expander() for hide a lot of text and hide some.
+
+st.set_page_config(page_title='H.KianAra', page_icon = 'airplane.ico')
+    # , layout = 'wide', initial_sidebar_state = 'auto'
