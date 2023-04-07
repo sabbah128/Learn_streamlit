@@ -1,6 +1,20 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
+from streamlit_lottie import st_lottie
+import requests
 
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+file_url = 'https://assets4.lottiefiles.com/temp/lf20_aKAfIn.json'
+
+lottie_book = load_lottieurl(file_url)
+st_lottie(lottie_book, speed=1, height=200, key="initial")
 
 st.title('Analyzing Your Goodreads Reading Habits')
 st.subheader('A Web App by [Tyler Richards](http://www.tylerjrichards.com)')
