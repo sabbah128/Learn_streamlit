@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import time
 
 
 st.title("Palmer's Penguins")
@@ -11,7 +10,7 @@ st.markdown('Use this Streamlit app to make your own scatterplot about penguins!
 penguins_file = st.file_uploader( 'Select Your Local Penguins CSV (default provided)')
 
 if penguins_file is None:
-    penguins_df = pd.read_csv('penguins.csv')
+    penguins_df = pd.read_csv('.\penguins.csv')
 
 selected_x_var = st.selectbox('What do want the x variable to be?', 
                               ['bill_length_mm', 'bill_depth_mm', 
