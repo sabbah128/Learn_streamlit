@@ -9,7 +9,8 @@ import requests
 url_csv = 'https://raw.githubusercontent.com/sabbah128/Learn_streamlit/main/job_application/airport_location.csv'
 url_icon = 'https://raw.githubusercontent.com/sabbah128/Learn_streamlit/main/job_application/airplane.ico'
 url_gif = 'https://assets4.lottiefiles.com/packages/lf20_jhu1lqdz.json'
-url_png = 'https://github.com/sabbah128/Learn_streamlit/blob/4fcad57731d5a67dcb012609f5549ee9ca4c74cd/job_application/haversine.png'
+url_png = 'https://raw.githubusercontent.com/sabbah128/Learn_streamlit/main/job_application/haversine.png'
+
 @st.cache_data()
 def load_lottieurl(url: str):
     r = requests.get(url)
