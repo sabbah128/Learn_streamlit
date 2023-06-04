@@ -9,6 +9,7 @@ import requests
 url_csv = 'https://raw.githubusercontent.com/sabbah128/Learn_streamlit/main/job_application/airport_location.csv'
 url_icon = 'https://raw.githubusercontent.com/sabbah128/Learn_streamlit/main/job_application/airplane.ico'
 url_gif = 'https://assets4.lottiefiles.com/packages/lf20_jhu1lqdz.json'
+url_png = 'https://github.com/sabbah128/Learn_streamlit/blob/main/job_application/haversine.png'
 
 @st.cache_data()
 def load_lottieurl(url: str):
@@ -58,9 +59,8 @@ if n_q == 'Q1':
     to account for that as well. The haversine distance formula is labeled
     below, followed by an implementation in python
     '''
-    st.write(airport_distance_df)
-    
-    st.image('haversine.png')
+    st.write(airport_distance_df)    
+    st.image(url_png)
 
     with st.expander('Expanding Code :'):
         with st.echo():
