@@ -58,7 +58,8 @@ if n_q == 'Q1':
     to account for that as well. The haversine distance formula is labeled
     below, followed by an implementation in python
     '''
-
+    st.write(airport_distance_df)
+    
     st.image('haversine.png')
 
     with st.expander('Expanding Code :'):
