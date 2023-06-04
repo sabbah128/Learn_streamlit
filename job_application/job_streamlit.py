@@ -4,6 +4,11 @@ import pandas as pd
 import requests
 
 
+
+url_csv = 'https://github.com/sabbah128/Learn_streamlit/blob/main/job_application/airport_location.csv'
+url_icon = 'https://raw.githubusercontent.com/sabbah128/Learn_streamlit/main/job_application/airplane.ico'
+url_gif = 'https://assets4.lottiefiles.com/packages/lf20_jhu1lqdz.json'
+
 @st.cache_data()
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -11,16 +16,14 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
-st.set_page_config(page_title='H.KianAra', 
-                   page_icon = 'https://raw.githubusercontent.com/sabbah128/Learn_streamlit/main/job_application/airplane.ico')
+st.set_page_config(page_title='H.KianAra', page_icon = url_icon)
     # , layout = 'wide', initial_sidebar_state = 'auto'
 
 st.sidebar.title('Answering the Questions.')
 n_q = st.sidebar.radio('Select number of questions:', ['Q1', 'Q2'])
 
 if n_q == 'Q1':
-    lottie_airplane = load_lottieurl(
-        'https://assets4.lottiefiles.com/packages/lf20_jhu1lqdz.json')
+    lottie_airplane = load_lottieurl(url_gif)
     st_lottie(lottie_airplane, speed=1, height=200, key="initial")
 
     st.title('Major US Airline Job Application')
@@ -43,7 +46,7 @@ if n_q == 'Q1':
 
     with st.expander('Expanding Code :'):
         with st.echo():
-            airport_distance_df = pd.read_csv('airport_location.csv')
+            airport_distance_df = pd.read_csv(url_csv)
 
     '''
     From some quick googling, I found that the haversine distance
