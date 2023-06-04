@@ -7,7 +7,7 @@ import time
 
 @st.cache_data()
 def load_file(penguin_file):
-    time.sleep(10)
+    time.sleep(5)
     if penguin_file is not None:
         df = pd.read_csv(penguin_file)
     else:
