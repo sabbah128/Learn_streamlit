@@ -5,8 +5,7 @@ import requests
 
 
 
-# url_csv = 'https://github.com/sabbah128/Learn_streamlit/blob/main/job_application/airport_location.csv'
-url_csv = 'job_application/airport_location.csv'
+url_csv = 'https://github.com/sabbah128/Learn_streamlit/blob/main/job_application/airport_location.csv'
 url_icon = 'https://raw.githubusercontent.com/sabbah128/Learn_streamlit/main/job_application/airplane.ico'
 url_gif = 'https://assets4.lottiefiles.com/packages/lf20_jhu1lqdz.json'
 
@@ -26,7 +25,7 @@ n_q = st.sidebar.radio('Select number of questions:', ['Q1', 'Q2'])
 if n_q == 'Q1':
     lottie_airplane = load_lottieurl(url_gif)
     st_lottie(lottie_airplane, speed=1, height=200, key="initial")
-
+    
     st.title('Major US Airline Job Application')
     st.write('by H.KianAra')
     st.subheader('Question 1: Airport Distance')
@@ -47,7 +46,7 @@ if n_q == 'Q1':
 
     with st.expander('Expanding Code :'):
         with st.echo():
-            airport_distance_df = pd.read_csv(url_csv)
+            airport_distance_df = pd.read_csv('airport_location.csv')
 
     '''
     From some quick googling, I found that the haversine distance
