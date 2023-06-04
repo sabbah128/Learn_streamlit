@@ -47,7 +47,7 @@ if n_q == 'Q1':
 
     with st.expander('Expanding Code :'):
         with st.echo():
-            airport_distance_df = pd.read_csv('airport_location.csv')
+            airport_distance_df = pd.read_csv(url_csv)
 
     '''
     From some quick googling, I found that the haversine distance
