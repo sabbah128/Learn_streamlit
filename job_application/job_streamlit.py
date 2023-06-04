@@ -11,7 +11,7 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
-st.set_page_config(page_title='H.KianAra', page_icon = 'airplane.ico')
+st.set_page_config(page_title='H.KianAra', page_icon = ':memo:')
     # , layout = 'wide', initial_sidebar_state = 'auto'
 
 st.sidebar.title('Answering the Questions.')
